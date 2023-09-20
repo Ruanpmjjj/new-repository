@@ -10,7 +10,7 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-model user {s
+model user {
   id       Int     @id @unique @default(autoincrement())
   name     String?
   cpf      String  @unique
