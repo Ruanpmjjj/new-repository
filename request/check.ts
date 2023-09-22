@@ -1,7 +1,7 @@
 import { verify } from "crypto";
 
 export function isEmail(_email:any): boolean {
-    if (!isEmail(_email)) {
+    if (!isString(_email)) {
         return false;
     }
     const check = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gi
