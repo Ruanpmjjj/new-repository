@@ -14,11 +14,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const checkRequest = userRequest(email, cpf, password , name);
 
     if ( checkRequest.status == false) {
-        return res.status(403).json( { messege: checkRequest.messege } );
+        return res.status(403).json( { message: checkRequest.message } );
     }
 
     //create model
     const response =await createUser(email, cpf , password, name);
 
-    return res.status(200).json(response);
+    if ( response.message != undefined) {
+        return res.status(200).json(response);
+    }
 }

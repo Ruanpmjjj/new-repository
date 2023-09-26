@@ -44,3 +44,19 @@ button {
 button:hover {
   background-color: green;
 }
+
+
+.errorText {
+  color: red;
+  font-size: 18px;
+  align-items: center;
+}
+
+.form-Card {
+  margin-top: 20px;
+  background-color: gray;
+  padding: 15px;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  border-radius: 10px;
+}
