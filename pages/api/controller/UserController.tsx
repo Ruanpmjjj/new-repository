@@ -1,4 +1,5 @@
-import { createUserModel, findUserByModelEmail, findUserModelLogin} from '../model/User';
+import { generateToken } from '@/services/tokenConfig';
+import { createUserModel, findUserByModelcpf, findUserByModelEmail, findUserModelLogin} from '../model/User';
 
 export async function createUser(_email:string , _cpf:string , _password:string , _name?:string) {
     const userByCpf = await findUserByModelEmail(_cpf);
@@ -21,6 +22,10 @@ export async function login(_email:string, _password:string) {
     const userLogin = await findUserModelLogin(_email, _password);
 
     if(userLogin == undefined) {
-        return (message: "incorrect email or password")
+        return {message: "incorrect email or password"}
     }
+
+    const _token = generateToken(userLogin.email);
+
+    return { token: _token}
 }
